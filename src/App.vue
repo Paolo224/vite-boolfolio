@@ -1,41 +1,12 @@
 <script>
 import { store } from './store.js';
-import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
-//import AppMain from './components/AppMain.vue';
 
 export default {
   name: 'App',
 
   components: {
-    //AppMain,
     AppHeader,
-  },
-
-  data() {
-    return {
-      store,
-      urlAddress: 'http://127.0.0.1:8000/api/projects',
-    }
-  },
-
-  methods: {
-    getProjects() {
-      axios.get(this.urlAddress, {
-        params: {
-        }
-      })
-        .then((response) => {
-          this.store.projects = response.data.results;
-        })
-        .catch(function (error) {
-          console.warn(error);
-        });
-    }
-  },
-
-  created() {
-    this.getProjects();
   },
 }
 
@@ -43,7 +14,9 @@ export default {
 
 <template>
   <AppHeader />
-  <router-view></router-view>
+  <main class="p-3">
+    <router-view></router-view>
+  </main>
   <!-- <AppMain /> -->
 </template>
 
