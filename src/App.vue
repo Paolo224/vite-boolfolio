@@ -1,13 +1,15 @@
 <script>
 import { store } from './store.js';
 import axios from 'axios';
-import AppMain from './components/AppMain.vue';
+import AppHeader from './components/AppHeader.vue';
+//import AppMain from './components/AppMain.vue';
 
 export default {
   name: 'App',
 
   components: {
-    AppMain,
+    //AppMain,
+    AppHeader,
   },
 
   data() {
@@ -40,7 +42,9 @@ export default {
 </script>
 
 <template>
-  <AppMain />
+  <AppHeader />
+  <router-view></router-view>
+  <!-- <AppMain /> -->
 </template>
 
 <style lang="scss">
